@@ -11,5 +11,13 @@
         "paths": ["src"]
       }
     }
+  },
+  "globals": {
+    "describe": true,
+    "it": true,
+    "test": true,
+    "windows": true,
+    "expect": true,
+    "cy": true
   }
 }

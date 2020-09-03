@@ -6,6 +6,7 @@
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
     "babel-plugin-styled-components": "^1.11.1",
+    "cypress": "^5.1.0",
     "gatsby": "^2.24.50",
     "gatsby-image": "^2.4.16",
     "gatsby-plugin-manifest": "^2.4.24",
@@ -47,7 +48,8 @@
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
-    "pretest": "./node_modules/.bin/eslint --ignore-path .gitignore . --fix"
+    "pretest": "./node_modules/.bin/eslint --ignore-path .gitignore . --fix",
+    "cy": "yarn run cypress open"
   },
   "repository": {
     "type": "git",
