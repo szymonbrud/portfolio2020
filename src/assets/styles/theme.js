@@ -9,6 +9,7 @@ export default {
     input: '#E5E5E5',
     red_input: '#E28888',
     menu_current_option_hover: '#323232',
+    gray: '#C4C4C4',
   },
   fontsFamily: {
     roboto: "'Roboto', sans-serif",

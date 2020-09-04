@@ -36,7 +36,8 @@ const GlobalStyleProvider = ({ children }) => (
 );
 
 GlobalStyleProvider.propTypes = {
-  children: PropTypes.arrayOf(element).isRequired,
+  children: PropTypes.oneOfType([PropTypes.arrayOf(element), element])
+    .isRequired,
 };
 
 export default GlobalStyleProvider;

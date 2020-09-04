@@ -18,6 +18,7 @@ module.exports = {
         components: path.join(__dirname, 'src/components'),
         assets: path.join(__dirname, 'src/assets'),
         images: path.join(__dirname, 'src/assets/images'),
+        icons: path.join(__dirname, 'src/assets/icons'),
       },
     },
     {
@@ -39,6 +40,14 @@ module.exports = {
         theme_color: '#663399',
         display: 'minimal-ui',
         icon: 'src/assets/images/gatsby-icon.png', // This path is relative to the root of the site.
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-react-svg',
+      options: {
+        rule: {
+          include: /icons/, // See below to configure properly
+        },
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
