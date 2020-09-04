@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import media from 'assets/styles/media';
 
 export const Line = styled.div`
   height: 150px;
@@ -18,4 +19,9 @@ export const Line = styled.div`
     transform: rotate(270deg);
     font-size: 18px;
   }
+
+  ${media.tablet`
+    left: 119px;
+    
+  `}
 `;

@@ -1,9 +1,15 @@
 import styled from 'styled-components';
+import media from 'assets/styles/media';
 
 export const Wrapper = styled.div`
   position: absolute;
   right: 35px;
   bottom: 44px;
+
+  ${media.tablet`
+    left: 200px;
+    bottom: 70px;
+  `}
 `;
 
 export const BottomLine = styled.div`

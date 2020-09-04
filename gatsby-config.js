@@ -18,7 +18,8 @@ module.exports = {
         components: path.join(__dirname, 'src/components'),
         assets: path.join(__dirname, 'src/assets'),
         images: path.join(__dirname, 'src/assets/images'),
-        icons: path.join(__dirname, 'src/assets/icons'),
+        icons: path.join(__dirname, 'src/icons'),
+        hooks: path.join(__dirname, 'src/hooks'),
       },
     },
     {

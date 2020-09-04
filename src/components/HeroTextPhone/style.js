@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import media from 'assets/styles/media';
 
 export const HelloText = styled.h2`
   color: ${({ theme }) => theme.colors.yellow};
@@ -14,6 +15,10 @@ export const NameText = styled.h1`
   font-family: ${({ theme }) => theme.fontsFamily.robotoSlab};
   font-size: 72px;
   margin: 31px 0 0;
+
+  ${media.tablet`
+    width: 350px;
+  `}
 `;
 
 export const DescriptionText = styled.h1`
@@ -30,4 +35,8 @@ export const TextWrapper = styled.div`
   display: flex;
   justify-content: center;
   flex-direction: column;
+
+  ${media.tablet`
+    margin: 5vh 43px 0;
+  `}
 `;
