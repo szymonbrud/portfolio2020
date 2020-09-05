@@ -14,6 +14,10 @@ export const Wrapper = styled.div`
   ${media.smallDesktop`
     left: 12%;
   `}
+
+  ${media.desktop`
+    left: 16%;
+  `}
 `;
 
 export const BottomLine = styled.div`

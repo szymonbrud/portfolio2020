@@ -47,4 +47,8 @@ export const TextWrapper = styled.div`
   ${media.smallDesktop`
     margin: 5vh 0 0 12%;
   `}
+
+  ${media.desktop`
+    margin: 5vh 0 0 16%;
+  `}
 `;

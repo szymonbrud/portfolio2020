@@ -22,4 +22,9 @@ export const IconWrapper = styled.div`
     right: 10%;
     top: 53px;
   `}
+
+  ${media.desktop`
+    right: 14%;
+    top: 66px;
+  `}
 `;

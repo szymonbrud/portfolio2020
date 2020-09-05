@@ -11,6 +11,10 @@ export const Wrapper = styled.div`
     right: 10%;
     top: 20vh;
   `}
+
+  ${media.desktop`
+    right: 14%;
+  `}
 `;
 
 export const Image = styled.img`
