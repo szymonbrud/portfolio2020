@@ -1,18 +1,14 @@
 import React from 'react';
 
 import HamburgerMenu from 'components/HamburgerMenu';
+import HeroSocialIcons from 'components/HeroSocialIcons';
 
-import githubLogo from 'assets/images/githubLogo.png';
-
-import { MainWrapper, GitIcon, LinkedinText, IconWrapper } from './style';
+import { MainWrapper } from './style';
 
 const TopBarPhone = () => (
   <MainWrapper>
     <HamburgerMenu />
-    <IconWrapper>
-      <LinkedinText>in</LinkedinText>
-      <GitIcon src={githubLogo} />
-    </IconWrapper>
+    <HeroSocialIcons />
   </MainWrapper>
 );
 

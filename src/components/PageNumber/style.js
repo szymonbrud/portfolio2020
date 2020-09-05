@@ -10,6 +10,10 @@ export const Wrapper = styled.div`
     left: 200px;
     bottom: 70px;
   `}
+
+  ${media.smallDesktop`
+    left: 12%;
+  `}
 `;
 
 export const BottomLine = styled.div`

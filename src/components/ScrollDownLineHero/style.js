@@ -22,6 +22,9 @@ export const Line = styled.div`
 
   ${media.tablet`
     left: 119px;
-    
+  `}
+
+  ${media.smallDesktop`
+    left: 90px;
   `}
 `;

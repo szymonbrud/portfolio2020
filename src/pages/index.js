@@ -10,6 +10,7 @@ import NavigationArrow from 'components/NavigationArrow';
 import ScrollDownLineHero from 'components/ScrollDownLineHero';
 import PageNumber from 'components/PageNumber';
 import HeroImage from 'components/HeroImage';
+import MenuDesktopButton from 'components/MenuDesktopButton';
 
 import useGetWindowSize from 'hooks/useGetWindowSize';
 
@@ -25,6 +26,7 @@ const IndexPage = () => {
         <ScrollDownLineHero />
         <PageNumber />
         {windowSize !== 'phone' && <HeroImage />}
+        <MenuDesktopButton />
       </Background>
     </GlobalStyleProvider>
   );

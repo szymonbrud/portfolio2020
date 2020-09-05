@@ -19,6 +19,10 @@ export const NameText = styled.h1`
   ${media.tablet`
     width: 350px;
   `}
+
+  ${media.smallDesktop`
+    width: 700px;
+  `}
 `;
 
 export const DescriptionText = styled.h1`
@@ -38,5 +42,9 @@ export const TextWrapper = styled.div`
 
   ${media.tablet`
     margin: 5vh 43px 0;
+  `}
+
+  ${media.smallDesktop`
+    margin: 5vh 0 0 12%;
   `}
 `;

@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import media from 'assets/styles/media';
 
 export const ButtonWrapper = styled.button`
   border: none;
@@ -6,6 +7,10 @@ export const ButtonWrapper = styled.button`
   padding: 20px 10px;
   margin: 0;
   transform: translateX(-10px);
+
+  ${media.smallDesktop`
+    display: none;
+  `}
 `;
 
 export const Bar = styled.div`

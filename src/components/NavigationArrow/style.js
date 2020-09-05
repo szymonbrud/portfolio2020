@@ -14,4 +14,8 @@ export const Wrapper = styled.nav`
     left: 71px;
     bottom: 50px;
   `}
+
+  ${media.smallDesktop`
+    left: 42px;
+  `}
 `;
