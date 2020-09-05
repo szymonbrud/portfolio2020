@@ -6,6 +6,14 @@ export const Wrapper = styled.div`
   left: 60%;
   top: 27vh;
 
+  ${media.phone`
+    display: none;
+  `}
+
+  ${media.tablet`
+    display: block;
+  `}
+
   ${media.smallDesktop`
     left: unset;
     right: 10%;

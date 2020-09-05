@@ -12,24 +12,18 @@ import PageNumber from 'components/PageNumber';
 import HeroImage from 'components/HeroImage';
 import MenuDesktopButton from 'components/MenuDesktopButton';
 
-import useGetWindowSize from 'hooks/useGetWindowSize';
-
-const IndexPage = () => {
-  const { windowSize } = useGetWindowSize();
-
-  return (
-    <GlobalStyleProvider>
-      <Background>
-        <TopBarPhone />
-        <HeroTextPhone />
-        <NavigationArrow />
-        <ScrollDownLineHero />
-        <PageNumber />
-        {windowSize !== 'phone' && <HeroImage />}
-        <MenuDesktopButton />
-      </Background>
-    </GlobalStyleProvider>
-  );
-};
+const IndexPage = () => (
+  <GlobalStyleProvider>
+    <Background>
+      <TopBarPhone />
+      <HeroTextPhone />
+      <NavigationArrow />
+      <ScrollDownLineHero />
+      <PageNumber />
+      <HeroImage />
+      <MenuDesktopButton />
+    </Background>
+  </GlobalStyleProvider>
+);
 
 export default IndexPage;
