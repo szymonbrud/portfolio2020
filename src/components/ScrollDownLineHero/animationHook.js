@@ -15,7 +15,7 @@ const useAnimationHook = () => {
     const tl = gsap.timeline();
 
     tl.from(text, {
-      y: 200,
+      y: 300,
       duration: 0.5,
       ease: 'back.out(1.7)',
       delay: 3.4,

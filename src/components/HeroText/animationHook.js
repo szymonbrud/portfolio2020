@@ -40,6 +40,9 @@ const useAnimationHook = () => {
       .to(descText.children[0], {
         left: '100%',
         duration: 0.5,
+      })
+      .to([helloText.children, nameText.children, descText.children], {
+        opacity: 0,
       });
   };
 

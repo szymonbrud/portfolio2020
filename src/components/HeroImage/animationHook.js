@@ -6,28 +6,15 @@ const useAnimationHook = () => {
 
   const animationEntry = () => {
     const mainWrapper = textWrapper.current;
-    const [, line] = textWrapper.current.children;
+    const [, background] = textWrapper.current.children;
 
     const tl = gsap.timeline();
 
-    gsap.to(line, { scaleX: 0 });
-
     tl.from(mainWrapper, {
-      delay: 2.1,
-      duration: 0.3,
-      y: 200,
-      ease: 'back.out(1.7)',
-    }).fromTo(
-      line,
-      {
-        x: -100,
-      },
-      {
-        scaleX: 1,
-        x: 0,
-        duration: 0.7,
-      },
-    );
+      opacity: 0,
+      duration: 0.5,
+      delay: 2,
+    }).from(background, { left: 0, top: 0, duration: 0.5 });
   };
 
   useEffect(() => {

@@ -40,7 +40,7 @@ export const Background = styled.div`
   top: 16px;
   left: -25px;
   background: ${({ theme }) => theme.colors.yellow};
-  height: 100%;
+  height: 99%;
   width: 100%;
   z-index: 2;
 
