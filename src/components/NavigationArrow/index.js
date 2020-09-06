@@ -1,10 +1,13 @@
 import React, { useRef, useEffect } from 'react';
 
-import Logo from '../../icons/arrow.svg';
+import Arrow from '../../icons/arrow.svg';
 import { Wrapper } from './style';
+import animationEntry from './animationHook';
 
 const NavigationArrow = () => {
   const wrapperRef = useRef(null);
+
+  animationEntry(wrapperRef);
 
   useEffect(() => {
     const [arrowTop, arrowBottom] = wrapperRef.current.children;
@@ -21,8 +24,8 @@ const NavigationArrow = () => {
 
   return (
     <Wrapper ref={wrapperRef}>
-      <Logo />
-      <Logo style={{ transform: 'rotate(180deg)', marginTop: '15px' }} />
+      <Arrow />
+      <Arrow style={{ transform: 'rotate(180deg)', marginTop: '15px' }} />
     </Wrapper>
   );
 };

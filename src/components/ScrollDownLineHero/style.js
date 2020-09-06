@@ -1,24 +1,10 @@
 import styled from 'styled-components';
 import media from 'assets/styles/media';
 
-export const Line = styled.div`
-  height: 150px;
-  background: ${({ theme }) => theme.colors.yellow};
-  width: 2px;
+export const Wrapper = styled.div`
   position: absolute;
   bottom: 0;
   left: 84px;
-
-  ::before {
-    content: 'scroll down';
-    position: absolute;
-    color: ${({ theme }) => theme.colors.yellow};
-    right: -62px;
-    top: 29px;
-    width: 100px;
-    transform: rotate(270deg);
-    font-size: 18px;
-  }
 
   ${media.tablet`
     left: 119px;
@@ -27,4 +13,20 @@ export const Line = styled.div`
   ${media.smallDesktop`
     left: 90px;
   `}
+`;
+
+export const Text = styled.p`
+  color: ${({ theme }) => theme.colors.yellow};
+  font-size: 18px;
+  position: absolute;
+  right: -62px;
+  width: 100px;
+  transform: rotate(270deg);
+  top: 11px;
+`;
+
+export const Line = styled.div`
+  height: 150px;
+  background: ${({ theme }) => theme.colors.yellow};
+  width: 2px;
 `;
