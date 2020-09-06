@@ -11,7 +11,7 @@ const useAnimationHook = () => {
       y: -100,
       duration: 0.4,
       ease: 'back.out(1.7)',
-      delay: 1.7,
+      delay: 3,
     });
   };
 

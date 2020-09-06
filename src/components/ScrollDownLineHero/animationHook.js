@@ -18,7 +18,7 @@ const useAnimationHook = () => {
       y: 200,
       duration: 0.5,
       ease: 'back.out(1.7)',
-      delay: 3,
+      delay: 3.4,
     }).to(line, {
       duration: 1,
       scaleY: 1,

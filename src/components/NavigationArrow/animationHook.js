@@ -6,7 +6,7 @@ const useAnimationHook = wrapperRef => {
     gsap.from(wrapperRef.current, {
       y: 100,
       duration: 0.5,
-      delay: 2.5,
+      delay: 3.4,
       ease: 'back.out(1.7)',
     });
   };

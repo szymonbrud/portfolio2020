@@ -13,7 +13,7 @@ const useAnimationHook = () => {
     gsap.to(line, { scaleX: 0 });
 
     tl.from(mainWrapper, {
-      delay: 1.7,
+      delay: 2.1,
       duration: 0.3,
       y: 100,
       ease: 'back.out(1.7)',

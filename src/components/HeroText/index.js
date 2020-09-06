@@ -1,6 +1,12 @@
 import React from 'react';
 
-import { HelloText, TextWrapper, NameText, DescriptionText } from './style';
+import {
+  HelloText,
+  TextWrapper,
+  NameText,
+  DescriptionText,
+  TextBackground,
+} from './style';
 import useAnimationHook from './animationHook';
 
 const HeroTextPhone = () => {
@@ -8,9 +14,18 @@ const HeroTextPhone = () => {
 
   return (
     <TextWrapper ref={textWrapper}>
-      <HelloText>Hello, </HelloText>
-      <NameText>Szymon Brud</NameText>
-      <DescriptionText>I am front end devloepr</DescriptionText>
+      <HelloText>
+        Hello,
+        <TextBackground />
+      </HelloText>
+      <NameText>
+        Szymon Brud
+        <TextBackground />
+      </NameText>
+      <DescriptionText>
+        I am front end devloepr
+        <TextBackground />
+      </DescriptionText>
     </TextWrapper>
   );
 };

@@ -7,6 +7,19 @@ export const HelloText = styled.h2`
   font-family: ${({ theme }) => theme.fontsFamily.robotoSlab};
   font-size: 36px;
   margin: 0;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+
+  position: relative;
+`;
+
+export const TextBackground = styled.span`
+  position: absolute;
+  z-index: 1000;
+  width: 3px;
+  height: 100%;
+  background: white;
+  left: 0;
+  top: 0;
 `;
 
 export const NameText = styled.h1`
@@ -15,14 +28,16 @@ export const NameText = styled.h1`
   font-family: ${({ theme }) => theme.fontsFamily.robotoSlab};
   font-size: 72px;
   margin: 31px 0 0;
+  position: relative;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
 
   ${media.tablet`
     width: 350px;
-  `}
+  `};
 
   ${media.smallDesktop`
     width: 700px;
-  `}
+  `};
 `;
 
 export const DescriptionText = styled.h1`
@@ -31,6 +46,8 @@ export const DescriptionText = styled.h1`
   font-family: ${({ theme }) => theme.fontsFamily.robotoSlab};
   font-size: 24px;
   margin: 0 0 0;
+  position: relative;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
 `;
 
 export const TextWrapper = styled.div`
