@@ -13,7 +13,7 @@ export const MenuText = styled.nav`
   margin: 0;
   padding: 0;
 
-  ${media.phone`
+  ${media.minimal`
     display: none;
   `}
 
