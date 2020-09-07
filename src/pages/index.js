@@ -11,6 +11,7 @@ import ScrollDownLineHero from 'components/ScrollDownLineHero';
 import PageNumber from 'components/PageNumber';
 import HeroImage from 'components/HeroImage';
 import MenuDesktopButton from 'components/MenuDesktopButton';
+import BeforeBackgorund from 'components/BeforeBackground';
 
 import { StateOfPageContextProvider } from 'context/StateOfPageContext';
 
@@ -18,10 +19,8 @@ const IndexPage = () => {
   const [isLoad, setIsLoad] = useState(false);
 
   const isLoadedPage = () => {
-    console.log('run!');
     setTimeout(() => {
       if (window.isLoaded) {
-        console.log('great!');
         setIsLoad(true);
       } else {
         isLoadedPage();
@@ -37,15 +36,17 @@ const IndexPage = () => {
     return (
       <GlobalStyleProvider>
         <StateOfPageContextProvider>
-          <Background>
-            <TopBarPhone />
-            <HeroTextPhone />
-            <NavigationArrow />
-            <ScrollDownLineHero />
-            <PageNumber />
-            <HeroImage />
-            <MenuDesktopButton />
-          </Background>
+          <BeforeBackgorund>
+            <Background>
+              <TopBarPhone />
+              <HeroTextPhone />
+              <NavigationArrow />
+              <ScrollDownLineHero />
+              <PageNumber />
+              <HeroImage />
+              <MenuDesktopButton />
+            </Background>
+          </BeforeBackgorund>
         </StateOfPageContextProvider>
       </GlobalStyleProvider>
     );
