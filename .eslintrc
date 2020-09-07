@@ -21,6 +21,7 @@
     "test": true,
     "window": true,
     "expect": true,
-    "cy": true
+    "cy": true,
+    "document": true
   }
 }
