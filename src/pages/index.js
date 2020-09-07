@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 import './styles.css';
 
@@ -14,20 +14,43 @@ import MenuDesktopButton from 'components/MenuDesktopButton';
 
 import { StateOfPageContextProvider } from 'context/StateOfPageContext';
 
-const IndexPage = () => (
-  <GlobalStyleProvider>
-    <StateOfPageContextProvider>
-      <Background>
-        <TopBarPhone />
-        <HeroTextPhone />
-        <NavigationArrow />
-        <ScrollDownLineHero />
-        <PageNumber />
-        <HeroImage />
-        <MenuDesktopButton />
-      </Background>
-    </StateOfPageContextProvider>
-  </GlobalStyleProvider>
-);
+const IndexPage = () => {
+  const [isLoad, setIsLoad] = useState(false);
 
+  const isLoadedPage = () => {
+    console.log('run!');
+    setTimeout(() => {
+      if (window.isLoaded) {
+        console.log('great!');
+        setIsLoad(true);
+      } else {
+        isLoadedPage();
+      }
+    }, 200);
+  };
+
+  useEffect(() => {
+    isLoadedPage();
+  }, []);
+
+  if (isLoad) {
+    return (
+      <GlobalStyleProvider>
+        <StateOfPageContextProvider>
+          <Background>
+            <TopBarPhone />
+            <HeroTextPhone />
+            <NavigationArrow />
+            <ScrollDownLineHero />
+            <PageNumber />
+            <HeroImage />
+            <MenuDesktopButton />
+          </Background>
+        </StateOfPageContextProvider>
+      </GlobalStyleProvider>
+    );
+  }
+
+  return <h1>ładowanko</h1>;
+};
 export default IndexPage;
