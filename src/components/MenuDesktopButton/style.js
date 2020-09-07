@@ -8,10 +8,11 @@ export const MenuText = styled.nav`
   color: white;
   position: absolute;
   top: 50vh;
-  left: 23px;
+  left: 7px;
   transform: translateY(-50%);
   margin: 0;
-  padding: 0;
+  padding: 15px 30px;
+  user-select: none;
 
   ${media.minimal`
     display: none;
@@ -24,10 +25,20 @@ export const MenuText = styled.nav`
   ::before {
     content: '';
     position: absolute;
-    top: -12px;
-    right: -17px;
+    top: 2px;
+    right: 0px;
     background: white;
     width: 2px;
     height: 48px;
+    transition: transform 0.2s;
+  }
+
+  :hover {
+    cursor: pointer;
+
+    ::before {
+      transform: translateX(15px);
+      transition: transform 0.2s;
+    }
   }
 `;

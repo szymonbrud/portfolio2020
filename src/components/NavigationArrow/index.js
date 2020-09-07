@@ -7,12 +7,13 @@ import animationEntry from './animationHook';
 const NavigationArrow = () => {
   const wrapperRef = useRef(null);
 
-  animationEntry(wrapperRef);
+  const { onMounseEnterAnimation, onMounseLeaveAnimation } = animationEntry(
+    wrapperRef,
+  );
 
   useEffect(() => {
     const [arrowTop, arrowBottom] = wrapperRef.current.children;
 
-    // const top = element.getElementById('top');
     const arrowTopBar = arrowTop.getElementById('bar');
 
     arrowTopBar.style.display = 'none';
@@ -24,8 +25,22 @@ const NavigationArrow = () => {
 
   return (
     <Wrapper ref={wrapperRef}>
-      <Arrow />
-      <Arrow style={{ transform: 'rotate(180deg)', marginTop: '15px' }} />
+      <Arrow
+        onMouseEnter={e => onMounseEnterAnimation(e)}
+        onMouseLeave={e => onMounseLeaveAnimation(e)}
+        style={{ cursor: 'pointer', padding: '20px', boxSizing: 'content-box' }}
+      />
+      <Arrow
+        onMouseEnter={e => onMounseEnterAnimation(e)}
+        onMouseLeave={e => onMounseLeaveAnimation(e)}
+        style={{
+          transform: 'rotate(180deg)',
+          marginTop: '-25px',
+          cursor: 'pointer',
+          padding: '20px',
+          boxSizing: 'content-box',
+        }}
+      />
     </Wrapper>
   );
 };

@@ -10,8 +10,20 @@ const HeroSocialIcons = () => {
 
   return (
     <IconWrapper ref={iconsWrapper}>
-      <LinkedinText>in</LinkedinText>
-      <GitIcon src={githubLogo} />
+      <a
+        style={{ textDecoration: 'none' }}
+        href="https://www.linkedin.com/in/szymon-brud-119253189/"
+        target="blank"
+      >
+        <LinkedinText>in</LinkedinText>
+      </a>
+      <a
+        style={{ textDecoration: 'none' }}
+        href="https://github.com/szymonqqaz"
+        target="blank"
+      >
+        <GitIcon src={githubLogo} />
+      </a>
     </IconWrapper>
   );
 };

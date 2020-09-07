@@ -4,6 +4,7 @@ import media from 'assets/styles/media';
 export const GitIcon = styled.img`
   width: 23px;
   height: 23px;
+  cursor: pointer;
 `;
 
 export const LinkedinText = styled.p`
@@ -12,6 +13,8 @@ export const LinkedinText = styled.p`
   font-size: 22px;
   margin: 0;
   margin-right: 17px;
+  cursor: pointer;
+  text-decoration: none;
 `;
 
 export const IconWrapper = styled.div`
