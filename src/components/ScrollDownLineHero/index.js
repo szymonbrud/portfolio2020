@@ -1,16 +1,15 @@
-import React, { useContext } from 'react';
+import React from 'react';
 
-import StateOfPageContext from 'context/StateOfPageContext';
-
+import useChangePage from 'hooks/changePage';
 import { Line, Wrapper, Text } from './style';
 import useAnimationHook from './animationHook';
 
 const ScrollDownLineHero = () => {
-  const { setPageStatus } = useContext(StateOfPageContext);
-
+  const { nextPage } = useChangePage();
   const { wrapper } = useAnimationHook();
+
   return (
-    <Wrapper ref={wrapper} onClick={() => setPageStatus('leave')}>
+    <Wrapper ref={wrapper} onClick={nextPage}>
       <Text>scroll down</Text>
       <Line />
     </Wrapper>

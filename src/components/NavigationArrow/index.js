@@ -1,10 +1,12 @@
 import React, { useRef, useEffect } from 'react';
 
+import useChangePage from 'hooks/changePage';
 import Arrow from '../../icons/arrow.svg';
 import { Wrapper } from './style';
 import animationEntry from './animationHook';
 
 const NavigationArrow = () => {
+  const { nextPage } = useChangePage();
   const wrapperRef = useRef(null);
 
   const { onMounseEnterAnimation, onMounseLeaveAnimation } = animationEntry(
@@ -26,11 +28,13 @@ const NavigationArrow = () => {
   return (
     <Wrapper ref={wrapperRef}>
       <Arrow
+        onClick={() => nextPage(false)}
         onMouseEnter={e => onMounseEnterAnimation(e)}
         onMouseLeave={e => onMounseLeaveAnimation(e)}
         style={{ cursor: 'pointer', padding: '20px', boxSizing: 'content-box' }}
       />
       <Arrow
+        onClick={nextPage}
         onMouseEnter={e => onMounseEnterAnimation(e)}
         onMouseLeave={e => onMounseLeaveAnimation(e)}
         style={{
