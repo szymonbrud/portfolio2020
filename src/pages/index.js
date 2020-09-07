@@ -18,10 +18,8 @@ const IndexPage = () => {
   const [isLoad, setIsLoad] = useState(false);
 
   const isLoadedPage = () => {
-    console.log('run!');
     setTimeout(() => {
       if (window.isLoaded) {
-        console.log('great!');
         setIsLoad(true);
       } else {
         isLoadedPage();
