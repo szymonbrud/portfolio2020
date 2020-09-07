@@ -1,7 +1,11 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useContext } from 'react';
 import gsap from 'gsap';
 
+import StateOfPageContext from 'context/StateOfPageContext';
+
 const useAnimationHook = () => {
+  const { pageStatus } = useContext(StateOfPageContext);
+
   const textWrapper = useRef(null);
 
   const animationEntry = () => {
@@ -15,9 +19,22 @@ const useAnimationHook = () => {
     });
   };
 
+  const animationLeave = () => {
+    const mainWrapper = textWrapper.current;
+
+    gsap.to(mainWrapper, 0.4, {
+      x: -400,
+      ease: 'back.out(1.7)',
+    });
+  };
+
   useEffect(() => {
-    animationEntry();
-  }, []);
+    if (pageStatus === 'entered') {
+      animationEntry();
+    } else {
+      animationLeave();
+    }
+  }, [pageStatus]);
 
   return {
     textWrapper,

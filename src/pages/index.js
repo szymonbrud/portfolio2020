@@ -12,17 +12,21 @@ import PageNumber from 'components/PageNumber';
 import HeroImage from 'components/HeroImage';
 import MenuDesktopButton from 'components/MenuDesktopButton';
 
+import { StateOfPageContextProvider } from 'context/StateOfPageContext';
+
 const IndexPage = () => (
   <GlobalStyleProvider>
-    <Background>
-      <TopBarPhone />
-      <HeroTextPhone />
-      <NavigationArrow />
-      <ScrollDownLineHero />
-      <PageNumber />
-      <HeroImage />
-      <MenuDesktopButton />
-    </Background>
+    <StateOfPageContextProvider>
+      <Background>
+        <TopBarPhone />
+        <HeroTextPhone />
+        <NavigationArrow />
+        <ScrollDownLineHero />
+        <PageNumber />
+        <HeroImage />
+        <MenuDesktopButton />
+      </Background>
+    </StateOfPageContextProvider>
   </GlobalStyleProvider>
 );
 

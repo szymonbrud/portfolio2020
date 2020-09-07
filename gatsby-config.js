@@ -20,6 +20,7 @@ module.exports = {
         images: path.join(__dirname, 'src/assets/images'),
         icons: path.join(__dirname, 'src/icons'),
         hooks: path.join(__dirname, 'src/hooks'),
+        context: path.join(__dirname, 'src/context'),
       },
     },
     {

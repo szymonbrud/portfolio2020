@@ -1,10 +1,13 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useContext } from 'react';
 import gsap from 'gsap';
 import { CSSRulePlugin } from 'gsap/CSSRulePlugin';
+
+import StateOfPageContext from 'context/StateOfPageContext';
 
 gsap.registerPlugin(CSSRulePlugin);
 
 const useAnimationHook = () => {
+  const { pageStatus } = useContext(StateOfPageContext);
   const wrapper = useRef(null);
 
   const animationEntry = () => {
@@ -25,9 +28,21 @@ const useAnimationHook = () => {
     });
   };
 
+  const animationLeave = () => {
+    const [text, line] = wrapper.current.children;
+
+    const tl = gsap.timeline();
+
+    tl.to(line, 0.7, { scaleY: 0 }).to(text, 0.5, { y: 300 });
+  };
+
   useEffect(() => {
-    animationEntry();
-  }, []);
+    if (pageStatus === 'entered') {
+      animationEntry();
+    } else {
+      animationLeave();
+    }
+  }, [pageStatus]);
 
   return {
     wrapper,

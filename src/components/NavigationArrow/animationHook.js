@@ -1,12 +1,24 @@
-import { useEffect } from 'react';
+import { useEffect, useContext } from 'react';
 import gsap from 'gsap';
 
+import StateOfPageContext from 'context/StateOfPageContext';
+
 const useAnimationHook = wrapperRef => {
+  const { pageStatus } = useContext(StateOfPageContext);
+
   const animationEntry = () => {
     gsap.from(wrapperRef.current, {
       y: 200,
       duration: 0.5,
       delay: 3.4,
+      ease: 'back.out(1.7)',
+    });
+  };
+
+  const animationLeave = () => {
+    gsap.to(wrapperRef.current, {
+      y: 200,
+      duration: 0.5,
       ease: 'back.out(1.7)',
     });
   };
@@ -28,8 +40,12 @@ const useAnimationHook = wrapperRef => {
   };
 
   useEffect(() => {
-    animationEntry();
-  }, []);
+    if (pageStatus === 'entered') {
+      animationEntry();
+    } else {
+      animationLeave();
+    }
+  }, [pageStatus]);
 
   return {
     onMounseEnterAnimation,
