@@ -11,7 +11,6 @@ import ScrollDownLineHero from 'components/ScrollDownLineHero';
 import PageNumber from 'components/PageNumber';
 import HeroImage from 'components/HeroImage';
 import MenuDesktopButton from 'components/MenuDesktopButton';
-import BeforeBackgorund from 'components/BeforeBackground';
 
 import { StateOfPageContextProvider } from 'context/StateOfPageContext';
 
@@ -36,17 +35,15 @@ const IndexPage = () => {
     return (
       <GlobalStyleProvider>
         <StateOfPageContextProvider>
-          <BeforeBackgorund>
-            <Background>
-              <TopBarPhone />
-              <HeroTextPhone />
-              <NavigationArrow />
-              <ScrollDownLineHero />
-              <PageNumber />
-              <HeroImage />
-              <MenuDesktopButton />
-            </Background>
-          </BeforeBackgorund>
+          <Background>
+            <TopBarPhone />
+            <HeroTextPhone />
+            <NavigationArrow />
+            <ScrollDownLineHero />
+            <PageNumber />
+            <HeroImage />
+            <MenuDesktopButton />
+          </Background>
         </StateOfPageContextProvider>
       </GlobalStyleProvider>
     );
