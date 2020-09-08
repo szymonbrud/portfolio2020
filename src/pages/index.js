@@ -11,6 +11,7 @@ import ScrollDownLineHero from 'components/ScrollDownLineHero';
 import PageNumber from 'components/PageNumber';
 import HeroImage from 'components/HeroImage';
 import MenuDesktopButton from 'components/MenuDesktopButton';
+import BeforeBackground from 'components/BeforeBackground';
 
 import { StateOfPageContextProvider } from 'context/StateOfPageContext';
 
@@ -49,6 +50,6 @@ const IndexPage = () => {
     );
   }
 
-  return <h1>ładowanko</h1>;
+  return <BeforeBackground />;
 };
 export default IndexPage;
