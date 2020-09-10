@@ -12,6 +12,10 @@ export default function HTML(props) {
           name="viewport"
           content="width=device-width, initial-scale=1, shrink-to-fit=no"
         />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap"
+          rel="stylesheet"
+        ></link>
         {props.headComponents}
       </head>
       <body {...props.bodyAttributes}>
@@ -25,11 +29,11 @@ export default function HTML(props) {
           key={`loader`}
           id="___loader"
           style={{
-            alignItems: 'center',
-            backgroundColor: 'white',
-            display: 'flex',
-            justifyContent: 'center',
+            backgroundColor: '#000',
             position: 'fixed',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
             width: '100%',
             height: '100%',
             left: 0,
@@ -37,7 +41,18 @@ export default function HTML(props) {
             zIndex: 1,
           }}
         >
-          <h1>ŁADOWANIE</h1>
+          <h3
+            style={{
+              fontWeight: '300',
+              color: 'white',
+              fontSize: '35px',
+              fontFamily: "'Roboto', sans-serif",
+              margin: 0,
+              padding: 0,
+            }}
+          >
+            LOADING
+          </h3>
         </div>
         {props.postBodyComponents}
       </body>
