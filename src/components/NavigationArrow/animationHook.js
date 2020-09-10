@@ -23,20 +23,51 @@ const useAnimationHook = wrapperRef => {
     });
   };
 
-  const onMounseEnterAnimation = e => {
+  const tl = gsap.timeline();
+  const tl2 = gsap.timeline();
+
+  let isFirstDefined = false;
+  const isSecoundDefined = false;
+
+  const animationEnter1 = e => {
     const element = e.currentTarget;
     const bar = element.getElementById('bar');
 
-    gsap.set(bar, { display: 'block' });
-    gsap.fromTo(bar, { scaleY: 0 }, { duration: 0.5, scaleY: 1 });
+    if (!isFirstDefined) {
+      gsap.set(bar, { display: 'block', scaleY: 0 });
+      tl.to(bar, { scaleY: 1 });
+      isFirstDefined = true;
+    }
+
+    tl.play();
   };
 
-  const onMounseLeaveAnimation = e => {
+  const animationEnter2 = e => {
     const element = e.currentTarget;
     const bar = element.getElementById('bar');
 
-    gsap.to(bar, { scaleY: 0, duration: 0.5 });
-    gsap.set(bar, { display: 'none', delay: 0.5 });
+    if (!isSecoundDefined) {
+      gsap.set(bar, { display: 'block', scaleY: 0 });
+      tl2.to(bar, { scaleY: 1 });
+      isFirstDefined = true;
+    }
+
+    tl2.play();
+  };
+
+  const animationLeave1 = () => {
+    tl.reverse();
+  };
+
+  const animationLeave2 = () => {
+    tl2.reverse();
+  };
+
+  const animations = {
+    animationEnter1,
+    animationEnter2,
+    animationLeave1,
+    animationLeave2,
   };
 
   useEffect(() => {
@@ -48,8 +79,7 @@ const useAnimationHook = wrapperRef => {
   }, [pageStatus]);
 
   return {
-    onMounseEnterAnimation,
-    onMounseLeaveAnimation,
+    animations,
   };
 };
 
