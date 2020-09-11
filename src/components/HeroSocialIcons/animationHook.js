@@ -4,16 +4,17 @@ import gsap from 'gsap';
 import StateOfPageContext from 'context/StateOfPageContext';
 
 const useAnimationHook = () => {
-  const { pageStatus } = useContext(StateOfPageContext);
+  const { pageStatus, runEntryOrLeaveAnimation } = useContext(
+    StateOfPageContext,
+  );
 
   const iconsWrapper = useRef(null);
 
   const animationEntry = () => {
     const iconsWrapperElement = iconsWrapper.current;
 
-    gsap.from(iconsWrapperElement, {
+    gsap.from(iconsWrapperElement, 0.4, {
       y: -100,
-      duration: 0.4,
       ease: 'back.out(1.7)',
       delay: 3,
     });
@@ -30,11 +31,7 @@ const useAnimationHook = () => {
   };
 
   useEffect(() => {
-    if (pageStatus === 'entered') {
-      animationEntry();
-    } else {
-      animationLeave();
-    }
+    runEntryOrLeaveAnimation(animationEntry, animationLeave);
   }, [pageStatus]);
 
   return {

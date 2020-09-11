@@ -5,7 +5,7 @@ import StateOfPageContext from 'context/StateOfPageContext';
 const useChcangePage = () => {
   const { setPageStatus } = useContext(StateOfPageContext);
 
-  const pages = ['/', '/projects', 'contact'];
+  const pages = ['/', '/projects', '/contact'];
 
   const setTimerNextPage = page => {
     setTimeout(() => {

@@ -1,9 +1,9 @@
 import React from 'react';
 import { graphql, StaticQuery } from 'gatsby';
-import styled from 'styled-components';
 import PropTypes, { element } from 'prop-types';
-
 import BackgroundImage from 'gatsby-background-image';
+
+import { Background } from './style';
 
 const BackgroundComp = ({ children }) => (
   <StaticQuery
@@ -19,13 +19,13 @@ const BackgroundComp = ({ children }) => (
       }
     `}
     render={data => {
-      const imageData = data.images.childImageSharp.fluid;
+      const image = data.images.childImageSharp.fluid;
 
       return (
         <BackgroundImage
           Tag="section"
           className="Background"
-          fluid={imageData}
+          fluid={image}
           backgroundColor="#000"
         >
           <Background>{children}</Background>
@@ -41,10 +41,3 @@ BackgroundComp.propTypes = {
 };
 
 export default BackgroundComp;
-
-const Background = styled.div`
-  width: 100%;
-  height: 100vh;
-  position: relative;
-  overflow: hidden;
-`;

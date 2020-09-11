@@ -1,24 +1,38 @@
-import { useEffect, useContext } from 'react';
+import { useRef, useEffect, useContext } from 'react';
 import gsap from 'gsap';
 
 import StateOfPageContext from 'context/StateOfPageContext';
 
-const useAnimationHook = wrapperRef => {
-  const { pageStatus } = useContext(StateOfPageContext);
+const useAnimationHook = () => {
+  const wrapperRef = useRef(null);
+
+  const { pageStatus, runEntryOrLeaveAnimation } = useContext(
+    StateOfPageContext,
+  );
+
+  const startedArrowPosition = () => {
+    const [arrowTop, arrowBottom] = wrapperRef.current.children;
+
+    const arrowTopBar = arrowTop.getElementById('bar');
+
+    arrowTopBar.style.display = 'none';
+
+    const arrowBottomBar = arrowBottom.getElementById('bar');
+
+    arrowBottomBar.style.display = 'none';
+  };
 
   const animationEntry = () => {
-    gsap.from(wrapperRef.current, {
+    gsap.from(wrapperRef.current, 0.5, {
       y: 200,
-      duration: 0.5,
       delay: 3.4,
       ease: 'back.out(1.7)',
     });
   };
 
   const animationLeave = () => {
-    gsap.to(wrapperRef.current, {
+    gsap.to(wrapperRef.current, 0.5, {
       y: 200,
-      duration: 0.5,
       ease: 'back.out(1.7)',
     });
   };
@@ -26,59 +40,60 @@ const useAnimationHook = wrapperRef => {
   const tl = gsap.timeline();
   const tl2 = gsap.timeline();
 
-  let isFirstDefined = false;
-  const isSecoundDefined = false;
+  let isDefinedTimelineAnimation1 = false;
+  let isDefinedTimelineAnimation2 = false;
 
-  const animationEnter1 = e => {
+  const animationEntryHoverArrow1 = e => {
     const element = e.currentTarget;
     const bar = element.getElementById('bar');
 
-    if (!isFirstDefined) {
+    if (!isDefinedTimelineAnimation1) {
       gsap.set(bar, { display: 'block', scaleY: 0 });
       tl.to(bar, { scaleY: 1 });
-      isFirstDefined = true;
+      isDefinedTimelineAnimation1 = true;
     }
 
     tl.play();
   };
 
-  const animationEnter2 = e => {
+  const animationEntryHoverArrow2 = e => {
     const element = e.currentTarget;
     const bar = element.getElementById('bar');
 
-    if (!isSecoundDefined) {
+    if (!isDefinedTimelineAnimation2) {
       gsap.set(bar, { display: 'block', scaleY: 0 });
       tl2.to(bar, { scaleY: 1 });
-      isFirstDefined = true;
+      isDefinedTimelineAnimation2 = true;
     }
 
     tl2.play();
   };
 
-  const animationLeave1 = () => {
+  const animationLeaveHoverArrow1 = () => {
     tl.reverse();
   };
 
-  const animationLeave2 = () => {
+  const animationLeaveHoverArrow2 = () => {
     tl2.reverse();
   };
 
   const animations = {
-    animationEnter1,
-    animationEnter2,
-    animationLeave1,
-    animationLeave2,
+    animationEntryHoverArrow1,
+    animationEntryHoverArrow2,
+    animationLeaveHoverArrow1,
+    animationLeaveHoverArrow2,
   };
 
   useEffect(() => {
-    if (pageStatus === 'entered') {
-      animationEntry();
-    } else {
-      animationLeave();
-    }
+    runEntryOrLeaveAnimation(animationEntry, animationLeave);
   }, [pageStatus]);
 
+  useEffect(() => {
+    startedArrowPosition();
+  });
+
   return {
+    wrapperRef,
     animations,
   };
 };

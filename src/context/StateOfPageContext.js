@@ -6,8 +6,18 @@ const StateOfPageContext = React.createContext();
 export const StateOfPageContextProvider = ({ children }) => {
   const [pageStatus, setPageStatus] = useState('entered');
 
+  const runEntryOrLeaveAnimation = (entryAnimation, leaveAnimation) => {
+    if (pageStatus === 'entered') {
+      entryAnimation();
+    } else {
+      leaveAnimation();
+    }
+  };
+
   return (
-    <StateOfPageContext.Provider value={{ pageStatus, setPageStatus }}>
+    <StateOfPageContext.Provider
+      value={{ pageStatus, setPageStatus, runEntryOrLeaveAnimation }}
+    >
       {children}
     </StateOfPageContext.Provider>
   );

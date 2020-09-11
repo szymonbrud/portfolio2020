@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import media from 'assets/styles/media';
+import Img from 'gatsby-image';
 
 export const Wrapper = styled.div`
   position: absolute;
@@ -25,13 +26,15 @@ export const Wrapper = styled.div`
   `}
 `;
 
-export const Image = styled.img`
+export const Image = styled(Img)`
   position: relative;
   z-index: 3;
   height: 46vh;
+  width: calc(46vh * 0.75);
 
   ${media.smallDesktop`
     height: 60vh;
+    width: calc(60vh * 0.75);
   `}
 `;
 

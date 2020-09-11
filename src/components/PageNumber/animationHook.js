@@ -4,7 +4,9 @@ import gsap from 'gsap';
 import StateOfPageContext from 'context/StateOfPageContext';
 
 const useAnimationHook = () => {
-  const { pageStatus } = useContext(StateOfPageContext);
+  const { pageStatus, runEntryOrLeaveAnimation } = useContext(
+    StateOfPageContext,
+  );
 
   const textWrapper = useRef(null);
 
@@ -16,9 +18,8 @@ const useAnimationHook = () => {
 
     gsap.to(line, { scaleX: 0 });
 
-    tl.from(mainWrapper, {
+    tl.from(mainWrapper, 0.3, {
       delay: 2.1,
-      duration: 0.3,
       y: 200,
       ease: 'back.out(1.7)',
     }).fromTo(
@@ -51,11 +52,7 @@ const useAnimationHook = () => {
   };
 
   useEffect(() => {
-    if (pageStatus === 'entered') {
-      animationEntry();
-    } else {
-      animationLeave();
-    }
+    runEntryOrLeaveAnimation(animationEntry, animationLeave);
   }, [pageStatus]);
   return {
     textWrapper,

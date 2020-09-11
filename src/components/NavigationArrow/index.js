@@ -1,49 +1,36 @@
-import React, { useRef, useEffect } from 'react';
+import React from 'react';
 
 import useChangePage from 'hooks/changePage';
-import Arrow from '../../icons/arrow.svg';
+
 import { Wrapper } from './style';
 import animationEntry from './animationHook';
+import Arrow from '../../icons/arrow.svg';
 
 const NavigationArrow = () => {
   const { nextPage } = useChangePage();
-  const wrapperRef = useRef(null);
-
-  const { animations } = animationEntry(wrapperRef);
+  const { animations, wrapperRef } = animationEntry();
 
   const {
-    animationEnter1,
-    animationEnter2,
-    animationLeave1,
-    animationLeave2,
+    animationEntryHoverArrow1,
+    animationEntryHoverArrow2,
+    animationLeaveHoverArrow1,
+    animationLeaveHoverArrow2,
   } = animations;
-
-  useEffect(() => {
-    const [arrowTop, arrowBottom] = wrapperRef.current.children;
-
-    const arrowTopBar = arrowTop.getElementById('bar');
-
-    arrowTopBar.style.display = 'none';
-
-    const arrowBottomBar = arrowBottom.getElementById('bar');
-
-    arrowBottomBar.style.display = 'none';
-  }, []);
 
   return (
     <Wrapper ref={wrapperRef}>
       <Arrow
         className={0}
         onClick={() => nextPage(false)}
-        onMouseEnter={e => animationEnter1(e)}
-        onMouseLeave={animationLeave1}
+        onMouseEnter={e => animationEntryHoverArrow1(e)}
+        onMouseLeave={animationLeaveHoverArrow1}
         style={{ cursor: 'pointer', padding: '20px', boxSizing: 'content-box' }}
       />
       <Arrow
         className={1}
         onClick={nextPage}
-        onMouseEnter={e => animationEnter2(e)}
-        onMouseLeave={animationLeave2}
+        onMouseEnter={e => animationEntryHoverArrow2(e)}
+        onMouseLeave={animationLeaveHoverArrow2}
         style={{
           transform: 'rotate(180deg)',
           marginTop: '-25px',

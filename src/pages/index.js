@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react';
 
-import './styles.css';
-
 import GlobalStyleProvider from 'assets/styles/globalStyle';
 import TopBarPhone from 'components/TopBarMobile';
 import Background from 'components/Background';
@@ -14,6 +12,8 @@ import MenuDesktopButton from 'components/MenuDesktopButton';
 import BeforeBackground from 'components/BeforeBackground';
 
 import { StateOfPageContextProvider } from 'context/StateOfPageContext';
+
+import './styles.css';
 
 const IndexPage = () => {
   const [isLoad, setIsLoad] = useState(false);

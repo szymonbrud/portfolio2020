@@ -1,13 +1,12 @@
 import { useEffect, useRef, useContext } from 'react';
 import gsap from 'gsap';
-import { CSSRulePlugin } from 'gsap/CSSRulePlugin';
 
 import StateOfPageContext from 'context/StateOfPageContext';
 
-gsap.registerPlugin(CSSRulePlugin);
-
 const useAnimationHook = () => {
-  const { pageStatus } = useContext(StateOfPageContext);
+  const { pageStatus, runEntryOrLeaveAnimation } = useContext(
+    StateOfPageContext,
+  );
   const wrapper = useRef(null);
 
   const animationEntry = () => {
@@ -17,13 +16,11 @@ const useAnimationHook = () => {
 
     const tl = gsap.timeline();
 
-    tl.from(text, {
+    tl.from(text, 0.5, {
       y: 300,
-      duration: 0.5,
       ease: 'back.out(1.7)',
       delay: 3.4,
-    }).to(line, {
-      duration: 1,
+    }).to(line, 1, {
       scaleY: 1,
     });
   };
@@ -37,11 +34,7 @@ const useAnimationHook = () => {
   };
 
   useEffect(() => {
-    if (pageStatus === 'entered') {
-      animationEntry();
-    } else {
-      animationLeave();
-    }
+    runEntryOrLeaveAnimation(animationEntry, animationLeave);
   }, [pageStatus]);
 
   return {
@@ -50,5 +43,3 @@ const useAnimationHook = () => {
 };
 
 export default useAnimationHook;
-
-// gsap.set chyba ustawia na początku coś
