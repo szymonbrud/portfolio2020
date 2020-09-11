@@ -5,7 +5,11 @@ import useAnimationHook from './animationHook';
 
 const MenuDesktopButton = () => {
   const { textWrapper } = useAnimationHook();
-  return <MenuText ref={textWrapper}>menu</MenuText>;
+  return (
+    <MenuText ref={textWrapper} data-testid="menuDesktopButton">
+      menu
+    </MenuText>
+  );
 };
 
 export default MenuDesktopButton;

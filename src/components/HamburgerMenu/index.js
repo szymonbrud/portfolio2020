@@ -7,7 +7,7 @@ const HamburgerMenu = () => {
   const { burger } = useAnimationHook();
 
   return (
-    <ButtonWrapper ref={burger}>
+    <ButtonWrapper ref={burger} data-testid="burgerMenu">
       <Bar />
     </ButtonWrapper>
   );

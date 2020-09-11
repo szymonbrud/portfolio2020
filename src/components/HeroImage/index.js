@@ -26,7 +26,7 @@ const HeroImage = () => {
         const image = data.images.childImageSharp.fluid;
 
         return (
-          <Wrapper ref={textWrapper}>
+          <Wrapper ref={textWrapper} data-testid="heroImage">
             <Image src={MyPhoto} fluid={image} />
             <Background />
           </Wrapper>
